@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".Home" 
+    >
+    <TextView 
+        android:id="@+id/welcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/welcome"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"/>
+    
+<LinearLayout 
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:id="@+id/topRow"
+    android:layout_below="@+id/welcomeText"
+    >
+    <Button
+        android:id="@+id/viewShowsButton"
+        android:layout_width = "0dp"
+        android:layout_height = "150dp"
+        android:layout_weight=".5"
+        android:text="@string/login"
+        />
+    <Button
+        android:id="@+id/viewTimeStatsButton"
+        android:layout_width = "0dp"
+        android:layout_height = "150dp"
+        android:layout_weight=".5"
+        android:text="@string/login"
+        />
+    </LinearLayout>
+        
+<LinearLayout 
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:layout_below="@+id/topRow"
+    >
+    <Button
+        android:id="@+id/searchShowsButton"
+        android:layout_width = "0dp"
+        android:layout_height = "150dp"
+        android:layout_weight=".5"
+        android:text="@string/login"
+        />
+    <Button
+        android:id="@+id/top25Button"
+        android:layout_width = "0dp"
+        android:layout_height = "150dp"
+        android:layout_weight=".5"
+        android:text="@string/login"
+        />
+    </LinearLayout>
+
+</RelativeLayout>
