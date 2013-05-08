@@ -14,5 +14,13 @@
     <string name="email">Email</string>
     <string name="title_activity_home">Home</string>
     <string name="welcome">Welcome</string>
+    <string name="errorLogin">Invalid login</string>
+    <string name="errorRegister">The chosen username already exists</string>
+    <string name="errorRegisterEmpty">Please enter values in all fields</string>
+    <string name="addShows">Add Shows</string>
+    <string name="profile">Profile</string>
+    <string name="myShows">My Shows</string>
+    <string name="mostWatched">Most Watched</string>
+    <string name="title_activity_shows">Shows</string>
 
 </resources>

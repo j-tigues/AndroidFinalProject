@@ -1,9 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".Home" 
+    android:orientation="vertical"
     >
     <TextView 
         android:id="@+id/welcomeText"
@@ -12,56 +12,45 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
         android:text="@string/welcome"
-        android:layout_centerHorizontal="true"
-        android:textSize="24sp"/>
-    
-<LinearLayout 
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    android:id="@+id/topRow"
-    android:layout_below="@+id/welcomeText"
-    >
-    <Button
-        android:id="@+id/viewShowsButton"
-        android:layout_width = "0dp"
-        android:layout_height = "150dp"
-        android:layout_weight=".5"
-        android:text="@string/login"
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id = "@+id/homeText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".6"
+        android:textIsSelectable="false"
+        android:gravity="left"
+        android:layout_gravity="center"
+        android:text = "@string/hello_world"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         />
     <Button
-        android:id="@+id/viewTimeStatsButton"
-        android:layout_width = "0dp"
-        android:layout_height = "150dp"
-        android:layout_weight=".5"
-        android:text="@string/login"
+        android:id="@+id/myShowsButton"
+        android:layout_width = "match_parent"
+        android:layout_height = "0dp"
+        android:layout_weight=".2"
+        android:text="@string/myShows"
+        android:layout_margin="10dp"
         />
-    </LinearLayout>
-        
-<LinearLayout 
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
-    android:layout_below="@+id/topRow"
-    >
-    <Button
-        android:id="@+id/searchShowsButton"
-        android:layout_width = "0dp"
-        android:layout_height = "150dp"
-        android:layout_weight=".5"
-        android:text="@string/login"
-        />
-    <Button
-        android:id="@+id/top25Button"
-        android:layout_width = "0dp"
-        android:layout_height = "150dp"
-        android:layout_weight=".5"
-        android:text="@string/login"
-        />
-    </LinearLayout>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/mostWatchedButton"
+        android:layout_width = "match_parent"
+        android:layout_height = "0dp"
+        android:layout_weight=".2"
+        android:text="@string/mostWatched"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        />
+    <Button
+        android:id="@+id/addShowsButton"
+        android:layout_width = "match_parent"
+        android:layout_height = "0dp"
+        android:layout_weight=".2"
+        android:text="@string/addShows"
+        android:layout_margin="10dp"
+        />
+
+</LinearLayout>

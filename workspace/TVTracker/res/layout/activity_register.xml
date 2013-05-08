@@ -69,28 +69,29 @@
         android:layout_alignParentRight="true"
         android:width="200dp"
         />
-    <TextView
-        android:id="@+id/emailText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/emailInput"
-        android:text="@string/email" />
-    <EditText
-        android:id="@+id/emailInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:layout_below="@+id/lnameInput"
-        android:layout_alignParentRight="true"
-        android:width="200dp"
-        />
     <Button
         android:id="@+id/createUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/emailInput"
+        android:layout_below="@+id/lnameInput"
         android:text="@string/register"
         />
+    <TextView
+        android:id="@+id/registerErrorUser"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createUser"
+        android:textColor="#ff0000"
+        android:text="@string/errorRegister" />
+    <TextView
+        android:id="@+id/registerErrorEmpty"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/createUser"
+        android:textColor="#ff0000"
+        android:text="@string/errorRegisterEmpty" />
 </RelativeLayout>

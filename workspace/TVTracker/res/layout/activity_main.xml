@@ -11,44 +11,44 @@
     android:layout_gravity="center">
 
     <TextView
-        android:id="@+id/loginText"
+        android:id="@+id/loginUserText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/loginInput"
+        android:layout_alignLeft="@+id/loginUserInput"
         android:layout_alignParentTop="true"
         android:text="@string/username" />
     <EditText
-        android:id="@+id/loginInput"
+        android:id="@+id/loginUserInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/loginText"
+        android:layout_below="@+id/loginUserText"
         android:width="200dp"
         />
     <TextView
-        android:id="@+id/pwText"
+        android:id="@+id/loginPwText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/pwInput"
-        android:layout_below="@+id/loginInput"
+        android:layout_alignLeft="@+id/loginPwInput"
+        android:layout_below="@+id/loginUserInput"
         android:text="@string/password" />
     <EditText
-        android:id="@+id/pwInput"
+        android:id="@+id/loginPwInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/pwText"
+        android:layout_below="@+id/loginPwText"
         android:width="200dp"
         />
     <LinearLayout
         android:id="@+id/buttonBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/pwInput"
-        android:layout_alignRight="@+id/pwInput"
-        android:layout_alignLeft="@+id/pwInput"
+        android:layout_below="@+id/loginPwInput"
+        android:layout_alignRight="@+id/loginPwInput"
+        android:layout_alignLeft="@+id/loginPwInput"
         android:baselineAligned="false">
         <RelativeLayout
             android:layout_width="0dp"
@@ -62,7 +62,7 @@
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:layout_toLeftOf="@+id/registerButton"
-        android:layout_below="@+id/pwInput"
+        android:layout_below="@+id/loginPwInput"
         />
     </RelativeLayout>
     <RelativeLayout
@@ -78,5 +78,15 @@
         android:text="@string/register"
         />
     </RelativeLayout>
+
     </LinearLayout>
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="@string/errorLogin"
+        android:layout_below="@+id/buttonBar"
+        android:textColor="#ff0000"
+        />
 </RelativeLayout>
