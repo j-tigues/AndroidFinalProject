@@ -160,7 +160,13 @@ public class Home extends Activity implements OnClickListener {
 					String text = EntityUtils.toString(entity);
 					if (!text.equals("0")){
 						JSONObject tmp = new JSONObject(text);
-						String AvgRating = String.format("%.2f", Float.parseFloat(tmp.getString("totalRating"))/Float.parseFloat(tmp.getString("numRatings")));
+						String AvgRating;
+						if (Float.parseFloat(tmp.getString("numRatings"))==0){
+							AvgRating = String.format("%.2f",0.00/0.00);
+						}
+						else{
+							AvgRating = String.format("%.2f", Float.parseFloat(tmp.getString("totalRating"))/Float.parseFloat(tmp.getString("numRatings")));
+						}
 						returnThis = "Name: " + tmp.getString("fname") + " " + tmp.getString("lname") + '\n' + '\n'+ 
 								"Shows watching: " + tmp.getString("numShows") + '\n' + '\n'
 								+ "Average Rating: " + AvgRating + " / 5.0";
