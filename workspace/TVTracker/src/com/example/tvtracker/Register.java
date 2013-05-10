@@ -88,7 +88,8 @@ public class Register extends Activity implements OnClickListener{
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.register, menu);
+		getMenuInflater().inflate(R.layout.menu, menu);
+		menu.removeItem(R.id.logoutMenu);
 		return true;
 	}
 

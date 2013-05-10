@@ -1,6 +1,7 @@
 package com.example.tvtracker;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -9,12 +10,16 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -22,16 +27,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnClickListener{
-	private class loginThread extends AsyncTask<String, Void, Boolean> {
+	private class loginThread extends AsyncTask<String, Void, ArrayList<String>> {
 
 		@Override
-		protected void onPostExecute(Boolean result){
+		protected void onPostExecute(ArrayList<String> result){
 			loadHome(result);
 		}
 
 		@Override
-		protected Boolean doInBackground(String... logins) {
-			Boolean successfulLogin = false;
+		protected ArrayList<String> doInBackground(String... logins) {
+			ArrayList<String> loginData = new ArrayList<String>();
 			SharedPreferences settings = getSharedPreferences("LoginInfo", 0);
 		    SharedPreferences.Editor editor = settings.edit();
 		    String username = logins[0];
@@ -46,8 +51,13 @@ public class MainActivity extends Activity implements OnClickListener{
 				HttpEntity entity = response.getEntity();
 				if (entity != null) {
 					String text = EntityUtils.toString(entity);
-					if (Integer.parseInt(text)==1){
-						successfulLogin=true;
+					if (!text.equals("0")){
+						JSONObject tmp = new JSONObject(text);
+						loginData.add(tmp.getString("fname"));
+						loginData.add(tmp.getString("lname"));
+						loginData.add(tmp.getString("numShows"));
+						loginData.add(tmp.getString("totalRating"));
+						loginData.add(tmp.getString("numRatings"));
 						editor.putString("username", username);
 						editor.putString("password", password);
 					    // Commit the edits!
@@ -60,9 +70,12 @@ public class MainActivity extends Activity implements OnClickListener{
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 			
-			return successfulLogin;
+			return loginData;
 		}
 
 	}
@@ -85,7 +98,8 @@ public class MainActivity extends Activity implements OnClickListener{
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getMenuInflater().inflate(R.layout.menu, menu);
+		menu.removeItem(R.id.logoutMenu);
 		return true;
 	}
 	
@@ -108,11 +122,23 @@ public class MainActivity extends Activity implements OnClickListener{
 		}
 	}
 	
-	private void loadHome(Boolean result) {
+	private void loadHome(ArrayList<String> result) {
 		// TODO Auto-generated method stub
-		if (result){
+		if (result.size()==5){
 			error.setVisibility(View.INVISIBLE);
+			Bundle b = new Bundle();
+			b.putString("fname", result.get(0));
+			b.putString("lname", result.get(1));
+			b.putString("numShows", result.get(2));
+			b.putString("numRatings", result.get(4));
+			if (result.get(4).equals("0")){
+				b.putString("ratingTotal", "0");
+			}
+			else{
+				b.putString("ratingTotal", result.get(3));
+			}
 			Intent i = new Intent(this, Home.class);
+			i.putExtras(b);
 			startActivity(i);
 		}
 		else{

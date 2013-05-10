@@ -17,10 +17,17 @@
     <string name="errorLogin">Invalid login</string>
     <string name="errorRegister">The chosen username already exists</string>
     <string name="errorRegisterEmpty">Please enter values in all fields</string>
-    <string name="addShows">Add Shows</string>
+    <string name="addShows">Add/Remove Shows</string>
     <string name="profile">Profile</string>
     <string name="myShows">My Shows</string>
     <string name="mostWatched">Most Watched</string>
     <string name="title_activity_shows">Shows</string>
+    <string name="title_activity_my_shows">MyShows</string>
+    <string name="title_activity_top_shows">TopShows</string>
+    <string name="title_activity_show">Show</string>
+    <string name="rateThis">Rate This Show</string>
+    <string name="myName">Jeffrey Artigues</string>
+    <string name="logout">Logout</string>
+    <string name="deleteAccount">Delete Account</string>
 
 </resources>
